@@ -1,0 +1,305 @@
+
+body{
+     background: linear-gradient(120deg,#6366f1,#f43f5e);
+    font-family: 'Poppins', sans-serif;
+    background-position: center;
+    min-height: 100vh;
+    background-repeat: no-repeat;
+}
+.userlog
+{
+
+    height: 120px;
+    width:400px;
+    background: transparent;
+    position: absolute;
+    top: 20px;
+    left: 25px;
+    color: white;
+    font-family:'Poppins', sans-serif;
+ 
+}.userlog img{
+    height: 40px;
+    width: 40px;
+   
+}
+
+.Rightside
+{
+top: 0;
+margin-left:150px;
+height: auto;
+width: 1200px;
+margin-top:35px;
+position: absolute;
+background-color: rgb(255, 255, 255);
+color:black;
+ border-radius: 18px 18px 0px 0px ;
+
+
+}.header
+{
+  height:150px;
+  width:100%;
+  font-family: 'Poppins', sans-serif;
+  font-size: 20px;
+  align-items: center;
+  align-content: center;
+  position: absolute;
+  background-color:grey;
+  border-radius: 18px 18px 0px 0px ;
+
+}.Rightside table{
+  height:auto;
+  width:90%;
+  background-color: rgb(255, 255, 255);
+  margin: 55px 5%;
+  align-items: center;
+  text-align: center;
+  font-size:15px;
+  overflow: hidden;
+  border-collapse: collapse;
+  box-shadow:1px 2px 5px black;
+  font-family: 'Poppins', sans-serif;
+  
+}.Rightside table th{
+  
+  background: #6366f1;
+  font-size:22px;
+  color: white;
+  align-items: center;
+  text-align: center;
+  font-family: 'Poppins', sans-serif;
+ 
+}.Rightside table tr{
+  border-bottom: 4px solid rgb(44, 44, 44);
+  height:60px;
+  background-color:rgb(224, 216, 216);
+ 
+ 
+ 
+}.Rightside table tr:nth-child(even) {
+      background-color:rgb(175, 170, 170);
+}
+
+.Rightside table button 
+{
+  height: 30px;
+  color: white;
+  background: #357ABD;
+  width:40px;
+  margin-left:10px;
+  font-family:Arial, Helvetica, sans-serif;
+  font-weight: bold;
+  font-size: 18px;
+  border-radius: 5px;
+  border: none;
+}.Rightside table button:hover
+{
+  box-shadow: 1px 1px 8px black;
+}
+
+
+
+.Rightside table button a{
+  color: white;
+  text-decoration: none;
+}.Rightside table textarea{
+  resize: none;
+  width: 220px;
+} .Rightside table .a1{
+background-color: grey;
+} .Rightside table .a2{
+ background:rgb(14, 153, 72);
+}
+ .Rightside table .a3
+{
+  background-color: red;
+}
+.header input
+{
+  height:40px;
+  width: 220px;
+  margin-left:850px;
+
+}
+.header button
+{
+  height:40px;
+  width: 110px;
+  background: #357ABD;
+
+}.Post
+{
+  background:rgb(14, 153, 72);
+  width: 22%;
+  height: 60px;
+  color: rgb(255, 255, 255);
+  margin-top:14%;
+  margin-left:77%;
+  font-size:23px;
+  align-items: center;
+  align-content: center;
+  padding: 10px;
+  border-radius: 5px;
+
+}.Post a{
+   padding-left:35px;
+  color: white;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 700;
+}.ttittle
+{
+  font-weight: bold;
+  
+}
+
+
+
+
+
+/* Mobile responsibe --------------------------------------------------------------------------*/
+@media screen and (max-width:500px)
+{
+  body{
+    background:white;
+    overflow-x: hidden;
+    max-width: 100%;
+   
+}
+  .Rightside
+  {
+    background-color: rgb(255, 255, 255);
+    margin: 0;
+  }.header
+{
+  height: 500px;
+  background-color:#6366f1;
+  border-radius: 25px 25px 25px 25px;
+  margin: 5% 1.5%;
+  width: 97%;
+ 
+}.userlog
+{
+    height:200px;
+    width:600px;
+    padding-left:45px;
+    position: absolute;
+    top: 40;
+    color: white;
+    font-size: 35px;
+    text-align: center;
+    font-family:'Poppins', sans-serif;
+ 
+}.userlog img{
+    height: 150px;
+    width: 150px;
+    backdrop-filter: blur(10px);
+    border-radius: 50%;
+    padding: 5px;
+    border: 2px solid grey;
+   
+}
+.Rightside table{
+  height:auto;
+  width:97%;
+  background-color: rgb(255, 255, 255);
+  margin:100px 1.5%;
+  align-items: center;
+  text-align: center;
+  font-size:15px;
+  border-collapse:collapse;
+  box-shadow:1px 4px 14px black;
+  font-family: 'Poppins', sans-serif;
+  border:0; 
+  border-radius: 25px 25px 25px 25px;
+  margin-top:200px;
+  outline: none;
+}
+.Rightside table th
+{
+height:120px;
+font-size: 32px;
+padding: 0; 
+}.Rightside table tr{
+ 
+  height:160px;
+ font-size: 20px;
+ 
+ 
+}.Rightside table td{
+ 
+max-width:300px;
+word-wrap: break-word;
+padding: 0px 5px;
+height: auto;
+
+
+ 
+ 
+}.Rightside table button 
+{
+  height: 60px;
+  color: white;
+  font-size: 30px;
+  width:60px;
+  border: none;
+}.Rightside table textarea{
+  resize: none;
+  width: 300px;
+  margin-right:-15px;
+  
+}
+.header input
+{
+  height:100px;
+  width: 600px;
+  margin-top: 280px;
+  margin-left:80px;
+  border-radius: 18px;
+  font-size: 45px;
+
+}
+
+.header input::placeholder
+{
+
+  font-size:50px;
+  color: grey;
+
+}
+.header button
+{
+  height:105px;
+  width: 310px;
+  background: #357ABD;
+  border-radius: 18px;
+  margin-left:40px;
+  font-size: 45px;
+  margin-bottom: 15px;
+
+}.Post
+{
+  background:rgb(14, 153, 72);
+  width: 50%;
+  height:200px;
+  color: rgb(255, 255, 255);
+  margin-top:64%;
+  margin-left:5%;
+  font-size:23px;
+  border-radius: 30px;
+  align-items: center;
+  align-content: center;
+  padding: 10px;
+  border-radius:65px;
+
+
+}.Post a{
+  padding-left:35px;
+  color: white;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 700;
+  font-size:60px;
+  border-radius: 25px;
+}
+}
