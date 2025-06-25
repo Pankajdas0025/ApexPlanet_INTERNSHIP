@@ -4,9 +4,7 @@ $conn=new mysqli("localhost","root","","blog");
 if($conn->connect_error)
 {
     echo " Not connect succesfully ! ";
-
 }
-  
 ?>
 
 <!DOCTYPE html>
