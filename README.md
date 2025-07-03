@@ -27,3 +27,6 @@
 
  </tr>
 </table>
+<img src="Basic CRUD Application/Images/A.png" height="250" width="400">
+<br>
+<img src="Basic CRUD Application/Images/T.png" height="250" width="400">

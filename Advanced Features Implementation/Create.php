@@ -3,7 +3,6 @@
 $a = $_GET['id'];
 $conn=new mysqli("localhost","root","","blog");
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>

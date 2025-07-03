@@ -73,7 +73,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $stmt = $conn->prepare("INSERT INTO posts (title, content , user_id) VALUES (?, ?,?)");
     $stmt->bind_param("ssi", $title, $content,$a);
     $stmt->execute();
-
     header("Location: Chome.php");
 }
 ?>
