@@ -1,0 +1,206 @@
+.header {
+    background: rgb(160, 244, 141);
+    width: 50%;
+    margin: 2px auto;
+    height: 50px;
+    overflow: hidden;
+    text-align: center;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
+}
+
+
+body{
+    background: linear-gradient(120deg,#6366f1,#f43f5e);
+    font-family: 'Poppins', sans-serif;
+    color: black;
+    background-repeat:repeat-y;
+    background-size: cover;
+    background-position: center;
+    min-height: 100vh;
+    scroll-behavior: smooth;
+}
+
+
+
+.box
+{   color: #000;
+    height: 550px;
+    width: 420px;
+    border-radius: 30px;
+    margin:70px auto ;
+    background:rgb(255, 255, 255);
+    
+}.sh
+{
+    height:60px;
+    width: 100%;
+    text-align: center;
+    padding-top: 30px;
+    padding-left: 12PX;
+    color: #1a1a1e;;
+    font-weight: bold;
+    font-family: 'Poppins', sans-serif;
+    font-size:1.5rem;
+    top: 0;
+    border-radius: 30px 30px 0px 0px;
+}
+input{
+    padding:15px;
+    margin:20px 65px;
+    width: 250px;
+    border-radius:5px;
+    outline: none;
+    border:0px white;
+    font-size: 15px;
+    box-shadow: 2px 1px 12px rgb(0, 0, 0);
+}input:focus {
+  border-color: var(--primary-color);
+}#Signupbtn  
+{
+    width: 280px;
+    border-radius: 5px;
+    margin-left:65px;
+    background: #6366f1;;
+    color: rgb(2, 2, 2);
+    box-shadow:0px 0px 0px rgb(0, 0, 0);
+    font-family:sans-serif;
+    font-weight: bold;
+    color: white;
+}#Signupbtn:hover
+{
+    background: #4043e9;
+    box-shadow: 1px 1px 2px black}
+#Loginbtn  
+{
+    width: 280px;
+    border-radius: 5px;
+    margin-left:65px;
+    background: #6366f1;;
+    color: rgb(2, 2, 2);
+    box-shadow:0px 0px 0px rgb(0, 0, 0);
+    font-family:sans-serif;
+    font-weight: bold;
+    color: white;
+}#Loginbtn:hover
+{
+    background: #4043e9;
+    box-shadow: 1px 1px 2px black
+}
+
+#lbtn , #Sibtn
+{
+    color:#242525;
+}
+
+
+#ppass
+{
+    font-size: 15px;
+    padding-left:210px;
+    margin: 0;
+    color: rgb(2, 2, 2);
+}
+.box p{
+    padding: 5px 50px;
+    align-items: center;
+    text-align: center;
+     color: rgb(2, 2, 2);
+
+  
+  
+}.box2{
+    
+    height: 550px;
+    width: 420px;
+    border-radius: 30px;
+    background:rgb(255, 255, 255);
+    position: absolute;
+    display: none;
+    top: 70px;
+}a{
+    color: white;
+}
+
+/* Mobile responsive------------------------------------------------------------------------------------------------------------------- */
+@media screen and (max-width:500px)
+{
+    body{
+    overflow:hidden;
+    max-width: 100%;
+    width: 100%;
+    background: linear-gradient(120deg,#6366f1,#f43f5e);
+    /* background:#6366f1; */
+    font-family: 'Poppins', sans-serif;
+    color: black;
+    margin: 0;
+    padding-top: 20px;
+   
+}
+
+   .box
+{   color: #000;
+    height: 600px;
+    max-width:100vw;
+    border-radius:60px 0px ;
+    display: block;
+    margin: 0;
+    overflow: hidden;
+    position: fixed;
+    
+}input{
+    padding:15px;
+    margin:20px 25px;
+    width: 250px;
+    border-radius:5px;
+    outline: none;
+    border:0px white;
+    font-size: 15px;
+    box-shadow: 2px 1px 5px #6366f1;
+}#Signupbtn  
+{
+    width: 280px;
+    border-radius: 5px;
+    margin-left:25px;
+    background: #6366f1;;
+    color: rgb(2, 2, 2);
+    box-shadow:0px 0px 0px rgb(0, 0, 0);
+    font-family:sans-serif;
+    font-weight: bold;
+    color: white;
+} .box2{
+    
+    height: 750px;
+    max-width:100vw;
+    border-radius: 30px;
+    margin:50px 0;
+    position: absolute;
+    display: none;
+    margin-top: -80px;
+    overflow: hidden;
+}#Loginbtn  
+{
+    width: 280px;
+    border-radius: 5px;
+    margin-left:25px;
+    background: #6366f1;;
+    color: rgb(2, 2, 2);
+    box-shadow:0px 0px 0px rgb(0, 0, 0);
+    font-family:sans-serif;
+    font-weight: bold;
+    color: white;
+}
+}
+
+
+
+
+
+
+
