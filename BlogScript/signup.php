@@ -9,7 +9,7 @@ require 'PHPMailer/src/PHPMailer.php';
 require 'PHPMailer/src/SMTP.php';
 require 'PHPMailer/src/Exception.php';
 
-include 'db.php'; 
+include 'db.php';
 
     if($_SERVER['REQUEST_METHOD']==="POST")
     {
@@ -18,8 +18,8 @@ include 'db.php';
         $Password =trim(mysqli_real_escape_string($conn,$_POST['Password']));
         // Generate a 6-digit verification code ............................................................................
         $vcode= rand(100000, 999999);
-       
-        if (!filter_var($Email, FILTER_VALIDATE_EMAIL)) 
+
+        if (!filter_var($Email, FILTER_VALIDATE_EMAIL))
 {
     echo "Invalid email format!";
     exit();
@@ -37,10 +37,10 @@ if($response && $response->num_rows >=1) {
 
     else
        {
-       
+
         if(!empty($Username) && !empty($Email) && !empty($Password) && !empty($vcode))
-{        
-        //for password we use this security 
+{
+        //for password we use this security
         $Password = trim(password_hash($_POST['Password'], PASSWORD_DEFAULT));
         $sql="INSERT INTO users
         values
@@ -49,7 +49,7 @@ if($response && $response->num_rows >=1) {
         if($conn->query($sql))
 
         {
-                        
+
     $to = $Email;
     $name = $Username;
     $subject = "Email Verification";
@@ -113,7 +113,7 @@ if($response && $response->num_rows >=1) {
     <!-- Footer -->
     <div style='background-color: #e5e7eb; padding: 15px; text-align: center; font-size: 0.8rem; color: #666;'>
       &copy;2025 BlogScrip. All rights reserved.<br>
-     
+
     </div>
   </div>
 </body>
@@ -127,7 +127,7 @@ if($response && $response->num_rows >=1) {
         $mail->Host       = 'smtp.gmail.com';
         $mail->SMTPAuth   = true;
         $mail->Username   = 'pd5569121@gmail.com'; // Gmail ID
-        $mail->Password   = 'carp uidg qexa uvyr';          // App password, not real password
+    //  App pass
         $mail->SMTPSecure = 'tls';
         $mail->Port       = 587;
 
@@ -142,7 +142,7 @@ if($response && $response->num_rows >=1) {
 
         $mail->send();
         echo "✅We send a varification code in your registred  email !";
-    } 
+    }
     catch (Exception $e) {
         echo "❌ Email could not be sent. Error: {$mail->ErrorInfo}";
     }
