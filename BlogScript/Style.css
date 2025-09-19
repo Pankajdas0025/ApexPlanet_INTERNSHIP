@@ -1,13 +1,13 @@
 
 :root {
-  --primary-color: #6366f1; /* Indigo */
-  --secondary-color: #f43f5e; /* Rose */
+  /* --primary-color: #6366f1;
+  --secondary-color: #f43f5e;
   --bg-light: #f9fafb;
   --text-color: #1f2937;
   --card-bg: #f3eded;
   --shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
   --radius: 12px;
-  --font-main: 'Poppins', sans-serif;
+  --font-main: 'Poppins', sans-serif; */
 }
 
 * {
@@ -62,7 +62,7 @@ header {
   opacity: 0.9;
 }
 /* login button  */
-.hero .btn-primary      
+.hero .btn-primary
 {
   outline: none;
   border: none;
@@ -113,7 +113,7 @@ input[type="text"]:focus {
 button[type="submit"]:hover, .btn-primary:hover {
   background-color: #4f46e5;
   transform: translateY(-2px);
-  
+
 }
 
 .post_box {
@@ -171,7 +171,7 @@ button[type="submit"]:hover, .btn-primary:hover {
   margin-top: 15px;
   font-size:2rem;
 
-  
+
 }.post_footer a
 {
   color: white;
@@ -202,7 +202,7 @@ footer a {
   font-size:18px;
 }
 
-footer a:hover 
+footer a:hover
 {
   text-decoration: underline;
   color: #f3f4f6;
@@ -223,7 +223,7 @@ footer a {
   font-size:10px;
 }
 
-footer a:hover 
+footer a:hover
 {
   text-decoration: underline;
   color: #f3f4f6;
