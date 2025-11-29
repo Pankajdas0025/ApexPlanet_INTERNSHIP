@@ -1,13 +1,13 @@
 
 :root {
-  /* --primary-color: #6366f1;
-  --secondary-color: #f43f5e;
+  --primary-color: #6366f1; /* Indigo */
+  --secondary-color: #f43f5e; /* Rose */
   --bg-light: #f9fafb;
   --text-color: #1f2937;
   --card-bg: #f3eded;
   --shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
-  --radius: 12px;
-  --font-main: 'Poppins', sans-serif; */
+  --radius: 0   px;
+  --font-main: 'Poppins', sans-serif;
 }
 
 * {
@@ -20,7 +20,7 @@ body {
   font-family: var(--font-main);
   background-color: var(--bg-light);
   color: var(--text-color);
-  padding: 20px;
+  padding:10px;
   line-height: 1.6;
 }
 
@@ -37,9 +37,10 @@ header {
 }
 
 .website_name {
-  font-size: 2rem;
+  font-size: 2.5rem;
   font-weight: 700;
-  letter-spacing: 1px;
+  letter-spacing: 5px;
+  display: flex;
 }
 
 .hero {
@@ -96,12 +97,11 @@ input[type="text"]:focus {
   outline: none;
   border: none;
   padding: 12px 24px;
-  background-color: var(--primary-color);
   border: none;
   border-radius: var(--radius);
   color: white;
   height:40px;
-  width:100px;
+  width:150px;
   font-size: 1.5rem;
   cursor: pointer;
   transition: background-color 0.3s ease, transform 0.2s ease;
@@ -165,6 +165,8 @@ button[type="submit"]:hover, .btn-primary:hover {
   color: #000103;
 }
 
+
+
 .post_footer {
   display: flex;
   justify-content: space-between;
@@ -214,9 +216,14 @@ footer a:hover
 
 
 
-@media screen and (max-width:500px)
+@media screen and (max-width:700px)
 {
 
+
+  body
+  {
+    padding: 1px 2.5px;
+  }
 footer a {
   color:white;
   text-decoration: none;

@@ -1,64 +1,68 @@
-
 <?php
-
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 
-// Include PHPMailer library files........................................................................................
+// Include PHPMailer library files
 require 'PHPMailer/src/PHPMailer.php';
 require 'PHPMailer/src/SMTP.php';
 require 'PHPMailer/src/Exception.php';
+include 'src/db.php';
+include 'src/config.php';
 
-include 'db.php';
+if ($_SERVER['REQUEST_METHOD'] === "POST") {
 
-    if($_SERVER['REQUEST_METHOD']==="POST")
-    {
-        $Username=trim(mysqli_real_escape_string($conn ,$_POST['Name']));
-        $Email=trim(mysqli_real_escape_string($conn,$_POST['Email']));
-        $Password =trim(mysqli_real_escape_string($conn,$_POST['Password']));
-        // Generate a 6-digit verification code ............................................................................
-        $vcode= rand(100000, 999999);
+    // Get POST data and sanitize
+    $Username = trim(mysqli_real_escape_string($conn, $_POST['Name']));
+    $Email = trim(mysqli_real_escape_string($conn, $_POST['Email']));
+    $Password = trim($_POST['Password']); // hash later
+    $vcode = rand(100000, 999999); // 6-digit verification code
 
-        if (!filter_var($Email, FILTER_VALIDATE_EMAIL))
-{
-    echo "Invalid email format!";
-    exit();
-}
+    // Validate email
+    if (!filter_var($Email, FILTER_VALIDATE_EMAIL)) {
+        echo "❌ Invalid email format!";
+        exit();
+    }
 
-        $check = "SELECT * FROM users WHERE EMAIL IN ('$Email')";
-        $response = $conn->query($check);
+    // Check if email already exists
+    $check_stmt = $conn->prepare("SELECT * FROM users WHERE email = ?");
+    $check_stmt->bind_param("s", $Email);
+    $check_stmt->execute();
+    $check_result = $check_stmt->get_result();
 
+    if ($check_result && $check_result->num_rows >= 1) {
+        echo "❌ This email is already registered!";
+        exit();
+    }
 
+    // All fields required
+    if (!empty($Username) && !empty($Email) && !empty($Password)) {
 
-if($response && $response->num_rows >=1) {
-    echo  $Email."<br> This Email is already registered!";
-    exit(0);
-}
+        // Hash the password
+        $hashed_password = password_hash($Password, PASSWORD_DEFAULT);
 
-    else
-       {
+        // Insert user using prepared statement
+        $stmt = $conn->prepare("INSERT INTO users (USER_NAME, EMAIL, PASSWORD, VERIFICATION_CODE) VALUES (?, ?, ?, ?)");
+        $stmt->bind_param("sssi", $Username, $Email, $hashed_password, $vcode);
 
-        if(!empty($Username) && !empty($Email) && !empty($Password) && !empty($vcode))
-{
-        //for password we use this security
-        $Password = trim(password_hash($_POST['Password'], PASSWORD_DEFAULT));
-        $sql="INSERT INTO users
-        values
-        ('','$Username','$Email','$Password' ,'$vcode','')";
+        if ($stmt->execute()) {
 
-        if($conn->query($sql))
-
-        {
-
-    $to = $Email;
-    $name = $Username;
-    $subject = "Email Verification";
-
-
-
-    // HTML email body......................................................................................................
-    $message = "
-    <!DOCTYPE html>
+            // PHPMailer setup
+            $mail = new PHPMailer(true);
+            try {
+                $mail->isSMTP();
+                $mail->Host = 'smtp.gmail.com';
+                $mail->SMTPAuth = true;
+                $mail->Username = 'pd5569121@gmail.com'; // your Gmail ID
+                $mail->Password = 'carp uidg qexa uvyr';  // Gmail App Password
+                $mail->SMTPSecure = 'tls';
+                $mail->Port = 587;
+                $mail->CharSet = 'UTF-8';
+                $mail->setFrom('pd5569121@gmail.com', 'Support BlogScript');
+                $mail->addAddress($Email);
+                $mail->isHTML(true);
+                $mail->Subject = "Email Verification";
+                $mail->Body = "
+                <!DOCTYPE html>
 <html>
 <head>
   <meta charset='UTF-8'>
@@ -69,8 +73,8 @@ if($response && $response->num_rows >=1) {
 
     <!-- Header -->
     <div style='background: linear-gradient(to right, #4f46e5, #ec4899); padding: 25px; text-align: center; color: #fff;'>
-      <h1 style='margin: 0; font-size: 1.8rem;'>👋 Hey <span style='color: #d1fae5;'>$name</span>,</h1>
-      <p style='margin-top: 10px; font-size: 1rem;'>Welcome to <strong>BlogScrip</strong> – Your Space to Create!</p>
+      <h1 style='margin: 0; font-size: 1.8rem;'>👋 Hey <span style='color: #d1fae5;'> $Username</span>,</h1>
+      <p style='margin-top: 10px; font-size: 1rem;'>Welcome to <strong>BlogScrip</strong> - Your Space to Create!</p>
     </div>
 
     <!-- Body -->
@@ -92,7 +96,7 @@ if($response && $response->num_rows >=1) {
       </p>
 
       <div style='text-align: center; margin: 30px 0;'>
-        <a href='http://localhost/MYPHP/Blogscript/Verification.php?email=$to&vcode=$vcode' style='text-decoration: none;'>
+        <a href='https://blogscriptapp.free.nf/verification?email=$Email&vcode=$vcode' style='text-decoration: none;'>
           <button style='padding: 14px 30px; background-color: #10b981; color: white; border: none; border-radius: 25px; font-size: 1rem; cursor: pointer; box-shadow: 0 4px 6px rgba(0,0,0,0.1);'>
             ✅ Verify My Email
           </button>
@@ -112,62 +116,30 @@ if($response && $response->num_rows >=1) {
 
     <!-- Footer -->
     <div style='background-color: #e5e7eb; padding: 15px; text-align: center; font-size: 0.8rem; color: #666;'>
-      &copy;2025 BlogScrip. All rights reserved.<br>
+      &copy;2025 BlogScript. All rights reserved.<br>
 
     </div>
   </div>
 </body>
 </html>
 ";
-// Send email using PHPMailer.......................................................................................................
-    $mail = new PHPMailer(true);
-    try {
-        // SMTP configuration
-        $mail->isSMTP();
-        $mail->Host       = 'smtp.gmail.com';
-        $mail->SMTPAuth   = true;
-        $mail->Username   = 'pd5569121@gmail.com'; // Gmail ID
-    //  App pass
-        $mail->SMTPSecure = 'tls';
-        $mail->Port       = 587;
 
-        // Email settings
-        $mail->CharSet = 'UTF-8';
-        $mail->setFrom('pd5569121@gmail.com', 'Support BlogScript');
-        $mail->addAddress($to);
 
-        $mail->isHTML(true);
-        $mail->Subject = $subject;
-        $mail->Body    = $message;
+                $mail->send();
+                echo "✅ Verification code sent to your registered email!";
+            } catch (Exception $e) {
+                echo "❌ Email could not be sent. Error: {$mail->ErrorInfo}";
+            }
 
-        $mail->send();
-        echo "✅We send a varification code in your registred  email !";
-    }
-    catch (Exception $e) {
-        echo "❌ Email could not be sent. Error: {$mail->ErrorInfo}";
+        } else {
+            echo "❌ Failed to insert data into database. Error: " . $conn->error;
+        }
+
+    } else {
+        echo "❌ All fields are required!";
     }
 
-
-
-        }
-        else
-        {
-            echo "Data Not Inserted to Database!";
-            exit(0);
-        }
-}    else
-       {
-       echo "<script>alert('All fields are Requierd for signup !')</script>";
-       }
-
-      }
-
+} else {
+    echo "❌ Invalid request method!";
 }
-else
-{
-echo "METHOD is not post !";
-}
-
-
-
 ?>

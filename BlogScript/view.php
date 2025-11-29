@@ -1,6 +1,6 @@
-
-<?php
-include 'db.php';
+ <?php
+include 'src/db.php';
+include 'src/config.php';
 $id = $_GET['id'];
 $result = $conn->query("SELECT * FROM posts WHERE id=$id");
 $post = $result->fetch_assoc();
@@ -9,58 +9,180 @@ $post = $result->fetch_assoc();
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>𝗕𝗹𝗼𝗴𝗦𝗰𝗿𝗶𝗽𝘁/Blog/view</title>
-     <!--favicon ------------------------------------------------------------------------------>
-<link rel="apple-touch-icon" sizes="180x180" href="favicon_io/apple-touch-icon.png">
-<link rel="icon" type="image/png" sizes="32x32" href="favicon_io/favicon-32x32.png">
-<link rel="icon" type="image/png" sizes="16x16" href="favicon_io/favicon-16x16.png">
-<link rel="manifest" href="favicon_io/site.webmanifest">
-    
-  <!-- cdn JQUARY -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-  <!--style cdn -->
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>  <!-- cdn bootstrap -->
-<link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">  <!-- cdn fontstyle  -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>  <!-- cdn animation  -->
-  <!-- CSs link -->
-   <link rel="stylesheet" href="Style/View.css" type="text/css">
-   
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title><?= htmlspecialchars($post['title']) ?></title>
+
+  <!--favicon -->
+  <link rel="apple-touch-icon" sizes="180x180" href="favicon_io/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon_io/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="favicon_io/favicon-16x16.png">
+  <link rel="manifest" href="favicon_io/site.webmanifest">
+
+  <!-- Fonts & Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    body {
+      background: #f3f5f9;
+      display: flex;
+      min-height: 100vh;
+      padding:10px;
+    }
+
+    .Textarea {
+      background: linear-gradient(45deg,#6366f1,#f43f5e);
+      width: 100%;
+
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+      padding: 25px;
+      animation: fadeIn 0.5s ease-in-out;
+    }
+
+    .Textarea h2 {
+      font-size: 22px;
+      margin-bottom: 15px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      word-wrap: break-word;
+    }
+
+    .Textarea h2 button {
+      background: #f0f0f0;
+      border: none;
+      padding: 8px 12px;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .Textarea h2 button:hover {
+      background: #007bff;
+      color: #fff;
+    }
+
+    .content {
+      font-size: 16px;
+      line-height: 1.7;
+      color: #ffffff;
+      border-top: 1px solid #eee;
+      border-bottom: 1px solid #eee;
+      padding: 20px 0;
+      word-wrap: break-word;
+    }
+
+    .content p {
+      margin-bottom: 15px;
+    }
+
+    .content ul, .content ol {
+      margin: 10px 20px;
+    }
+
+    #footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 20px;
+      font-size: 14px;
+      color: #555;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    #footer span, #footer button {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      border: none;
+      background: none;
+      cursor: default;
+      font-size: 14px;
+    }
+
+    #footer button {
+      cursor: pointer;
+      background: #007bff;
+      color: #fff;
+      padding: 6px 12px;
+      border-radius: 6px;
+      transition: 0.3s;
+    }
+
+    #footer button:hover {
+      background: #0056b3;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Responsive */
+    @media (max-width: 700px) {
+
+    body {  padding: 1px 2.5px; }
+      .Textarea {
+        height:auto;
+        padding: 15px;
+      }
+
+      .Textarea h2 {
+        font-size: 18px;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+      }
+
+      .content {
+        font-size: 14px;
+      }
+
+      #footer {
+        font-size: 13px;
+        flex-direction: column;
+        align-items: flex-start;
+      }
+    }
+  </style>
 </head>
+
 <body>
-    <div class="Main"> 
-    <header>_____________Ｂｌｏｇ___________ </header>   
-     <div class="Textarea">
-        <h2><?= $post['title'] ?><button id="span"  onclick="copyLink() " ><span class="glyphicon glyphicon-share-alt"></span></button>  </h2>
-        <br>
-        <br>
-        <!-- <button id="span"><span class="glyphicon glyphicon-thumbs-up">10</span></button> -->
-     <?= $post['content'] ?>
-    <h2 id="footer">
-        <!-- <a href="Admin.php" class="btn btn-primary btn-lg">
-          <span class="glyphicon glyphicon-circle-arrow-left"></span> Left
-        </a> -->
-        
-         <button id="span2"><span class="glyphicon glyphicon-user"><?= "  BLOGGER2025/".$post['user_id'] ?></span></button>
-         <span id="span2" class="glyphicon glyphicon-calendar"><?=$post['created_at'] ?></span> </h2>
+  <div class="Textarea">
+    <h2>
+      <?= htmlspecialchars($post['title']) ?>
+      <button onclick="copyLink()"><i class="fa fa-share-alt"></i></button>
+    </h2>
+
+    <div class="content">
+      <?= $post['content'] ?>
+
+      <!-- HTML formatting preserved -->
     </div>
 
+    <div id="footer">
+      <span><i class="fa fa-user"></i> <?= "BLOGGER2025/" . $post['user_id'] ?></span>
+      <span><i class="fa fa-calendar"></i> <?= $post['created_at'] ?></span>
     </div>
+  </div>
 
-    <script>
-        function copyLink()    
-{
-  const link = window.location.href; // Current page link
-  navigator.clipboard.writeText(link).then(() => {
-   window.alert("Copy to clipboard !")
-  }).catch(err => {
-    window.alert("Failed to Copy !")
-  });
-}
-    </script>
+  <script>
+    function copyLink() {
+      const link = window.location.href;
+      navigator.clipboard.writeText(link).then(() => {
+        window.alert("Link copied to clipboard!");
+      }).catch(() => {
+        window.alert("Failed to copy link.");
+      });
+    }
+  </script>
 </body>
 </html>
-

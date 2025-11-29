@@ -7,7 +7,7 @@ function openSignIn()
     var a=document.querySelector(".box2");
     var b=document.querySelector(".box");
     a.style.display="block";
-  
+
 
 }
 
@@ -19,7 +19,7 @@ function openSignUp()
     var a=document.querySelector(".box2");
     var b=document.querySelector(".box");
     a.style.display="none";
-  
+
 
 }
 
@@ -27,15 +27,13 @@ function openSignUp()
 // Check Name
 function checkName() {
   var Name = document.querySelector("#uName");
-
   if (Name.value.trim() === "") {
     alert("Name should be filled");
     return false;
   } else if (/\d/.test(Name.value)) {
     alert("Numbers are not allowed in the name");
-    return false;
     Name.value = "";
-   
+    return false;
   }
   return true;
 }
