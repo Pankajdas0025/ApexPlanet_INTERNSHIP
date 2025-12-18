@@ -236,7 +236,7 @@ while ($row = $result->fetch_assoc()) {
       <a href="https://drive.google.com/file/d/1gC6tuELq2-wC4WE1MEIopsIGkldPnTDh/view?usp=drive_link">Terms & Services</a> |
       <a href="https://wa.me/919155726625?text=Hey%2C%20can%20you%20Please%20share%20the%20details%20about%20𝗕𝗹𝗼𝗴𝗦𝗰𝗿𝗶𝗽𝘁">Contact us</a>
     </div>
-    <p>&copy; 2025 ≛⃝𝗕𝗹𝗼𝗴𝗦𝗰𝗿𝗶𝗽𝘁 All rights reserved.</p>
+    <p>&copy;  𝗕𝗹𝗼𝗴𝗦𝗰𝗿𝗶𝗽𝘁 All rights reserved.</p>
   </footer>
 
     </main>
@@ -258,7 +258,7 @@ while ($row = $result->fetch_assoc()) {
       setTimeout(() => {
         document.getElementById("welcome").style.display = "none";
         document.getElementById("home").style.display = "block";
-      }, 3000); // 3s delay + 1s fade animation
+      }, 1000); // 3s delay + 1s fade animation
     });
   </script>
 </body>

@@ -1,46 +1,9 @@
-### Check Now 
+### Check Now
 
 <a href="https://blogscriptapp.free.nf/"><img src="https://img.shields.io/badge/Visit Now-0073e6?style=for-the-badge&logo=google-chrome&logoColor=white" alt="Website Badge" /></a>
 <a href="https://appsgeyser.io/19124129/BlogScript" target="_blank">
   <img src="https://img.shields.io/badge/Download%20App-3DDC84?style=for-the-badge&logo=android&logoColor=white" />
 </a>
-<table>
-  <thead>
-    <th>Preview</th>
-    <th>Title</th>
-    <th>Action </th>
-  </thead>
-
-  <tbody>
-    <tr>
-      <td width="33%" > <img src="images/Basic Login System.png" height="250"> </td>
-      <td width="33%" >Basic Login System</td>
-       <td width="33%" > <a href="https://github.com/Pankajdas0025/PHP-basic-to-advance-projects/fork/" > Fork on GitHub</a></td>
-    </tr>
-      <tr>
-      <td width="33%" > <img src="images/Advance and Secure Login System.png" height="250"> </td>
-      <td width="33%" >Advance & Secure Login System</td>
-        <td width="33%" > <a href="https://github.com/Pankajdas0025/PHP-basic-to-advance-projects/fork/" > Fork on GitHub</a></td>
-    </tr>
-      <tr>
-      <td width="33%" > <img src="images/Image Upload System.png" height="250"> </td>
-      <td width="33%" >Image Upload System</td>
-       <td width="33%" > <a href="https://github.com/Pankajdas0025/PHP-basic-to-advance-projects/fork/" > Fork on GitHub</a></td>
-    </tr>
-      <tr>
-      <td width="33%" > <img src="images/PHP CRUD Application.png" height="250"> </td>
-      <td width="33%" >PHP CRUD Application</td>
-       <td width="33%" > <a href="https://github.com/Pankajdas0025/PHP-basic-to-advance-projects/fork/" > Fork on GitHub</a></td>
-    </tr>
-      <tr>
-      <td width="33%" > <img src="images/SimpleForm.png" height="250"> </td>
-      <td width="33%" >REST API in PHP (CRUD)</td>
-     <td width="33%" > <a href="https://github.com/Pankajdas0025/PHP-basic-to-advance-projects/fork/" > Fork on GitHub</a></td>
-    </tr>
-      </tbody>
-
-  </table>
-
 
 
 
