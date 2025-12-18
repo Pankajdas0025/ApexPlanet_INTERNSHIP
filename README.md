@@ -5,6 +5,8 @@
   <img src="https://img.shields.io/badge/Download%20App-3DDC84?style=for-the-badge&logo=android&logoColor=white" />
 </a>
 
+<img src="Images\blogscript-logo.jpg" height="80%" width="80%">
+
 
 
 ### Task 1: Setting Up the Development Environment
