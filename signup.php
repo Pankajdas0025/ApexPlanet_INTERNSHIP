@@ -30,7 +30,7 @@ if ($_SERVER['REQUEST_METHOD'] === "POST") {
     $check_result = $check_stmt->get_result();
 
     if ($check_result && $check_result->num_rows >= 1) {
-        echo "❌ This email is already registered!";
+        echo "😟This email is already registered!";
         exit();
     }
 
@@ -52,12 +52,12 @@ if ($_SERVER['REQUEST_METHOD'] === "POST") {
                 $mail->isSMTP();
                 $mail->Host = 'smtp.gmail.com';
                 $mail->SMTPAuth = true;
-                $mail->Username = 'pd5569121@gmail.com'; // your Gmail ID
-                $mail->Password = 'carp uidg qexa uvyr';  // Gmail App Password
+                $mail->Username =  $email; // your Gmail ID
+                $mail->Password = $password;  // Gmail App Password
                 $mail->SMTPSecure = 'tls';
                 $mail->Port = 587;
                 $mail->CharSet = 'UTF-8';
-                $mail->setFrom('pd5569121@gmail.com', 'Support BlogScript');
+                $mail->setFrom($email, 'Support BlogScript');
                 $mail->addAddress($Email);
                 $mail->isHTML(true);
                 $mail->Subject = "Email Verification";

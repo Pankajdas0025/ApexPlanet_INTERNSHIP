@@ -7,5 +7,24 @@ error_reporting(0);
 
 ini_set('log_errors', 1);
 ini_set('error_log', __DIR__ . '/errors.log');  // Project folder me file ban jayegi
+// Database connection
+
+                                        //SMTP Configuration
+                                        $email = "pd5569121@gmail.com";
+                                        $password  = "carp uidg qexa uvyr";
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 ?>

@@ -10,7 +10,6 @@ if (!isset($_SESSION['email']))
     exit();
     }
 
-
 $user_email = $_SESSION['email'] ?? '';
 $result = $conn->query("SELECT * FROM users WHERE EMAIL='$user_email'");
 $row = $result->fetch_assoc();
@@ -25,12 +24,12 @@ $Blogger_id = $row['ID'] ?? 0;
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Admin - Dashboard</title>
 
-<!-- favicon ======================================================================================-->
+<!-- favicon ============================================================================================-->
 <link rel="apple-touch-icon" sizes="180x180" href="favicon_io/apple-touch-icon.png">
 <link rel="icon" type="image/png" sizes="32x32" href="favicon_io/favicon-32x32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="favicon_io/favicon-16x16.png">
 
-<!-- Font & Icons  ================================================================================-->
+<!-- Font & Icons  ======================================================================================-->
 <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
@@ -175,16 +174,18 @@ button.a1, button.a2, button.a3 {
 @media (max-width: 700px){
         body {  padding: 1px 2.5px; }
 
-.Rightside {
+.Rightside
+{
     width: 100%;
     margin: 0;
 
 }
-    .header {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 10px;
-    }
+.header
+{
+flex-direction: column;
+align-items: flex-start;
+gap: 10px;
+}
     .search input { width: 100%; margin-bottom: 20px; }
     table th, table td { font-size: 10px; padding: 8px 4px; }
 

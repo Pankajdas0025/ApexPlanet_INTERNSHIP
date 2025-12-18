@@ -1,4 +1,4 @@
-
+<@DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -28,9 +28,13 @@
     </div>
 
 <?php
+
+$token = bin2hex(random_bytes(32)); // 64-char secure token
+$expiresAt = date('Y-m-d H:i:s', strtotime('+15 minutes'));
+
+
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
-
 require 'PHPMailer/src/PHPMailer.php';
 require 'PHPMailer/src/SMTP.php';
 require 'PHPMailer/src/Exception.php';
@@ -53,26 +57,31 @@ if ($_SERVER['REQUEST_METHOD'] === "POST" && isset($_POST['reset'])) {
         $name = $user['USER_NAME'];
         $email = $user['EMAIL'];
 
+$tokenHash = password_hash($token, PASSWORD_DEFAULT);
+$stmt = $conn->prepare("INSERT INTO password_resets (email, token_hash, expires_at) VALUES (? , ? , ? )");
+$stmt->bind_param("sss", $email , $tokenHash, $expiresAt);
+$stmt->execute();
+
+
 
         // Prepare PHPMailer
         $mail = new PHPMailer(true);
         try {
             $mail->isSMTP();
-            $mail->Host       = 'smtp.gmail.com';
-            $mail->SMTPAuth   = true;
-            $mail->Username   = 'pd5569121@gmail.com'; // your Gmail
-            $mail->Password   = 'carp uidg qexa uvyr';  // App Password
+            $mail->Host = 'smtp.gmail.com';
+            $mail->SMTPAuth = true;
+            $mail->Username =  $email; // your Gmail ID
+            $mail->Password = $password;  // Gmail App Password
             $mail->SMTPSecure = 'tls';
-            $mail->Port       = 587;
-
+            $mail->Port = 587;
             $mail->CharSet = 'UTF-8';
-            $mail->setFrom('pd5569121@gmail.com', 'BlogScript Support');
+            $mail->setFrom($email, 'Support BlogScript');
             $mail->addAddress($email);
 
             $mail->isHTML(true);
             $mail->Subject = "Reset Your BlogScript Password";
 
-            $resetLink = "https://blogscriptapp.free.nf/update-user-password?username=$email";
+            $resetLink = "https://blogscriptapp.free.nf/update-user-password?token=$token";
 
             $mail->Body = "
              <!DOCTYPE html>
