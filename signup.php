@@ -52,12 +52,12 @@ if ($_SERVER['REQUEST_METHOD'] === "POST") {
                 $mail->isSMTP();
                 $mail->Host = 'smtp.gmail.com';
                 $mail->SMTPAuth = true;
-                $mail->Username =  $email; // your Gmail ID
+                $mail->Username =  $myemail; // your Gmail ID
                 $mail->Password = $password;  // Gmail App Password
                 $mail->SMTPSecure = 'tls';
                 $mail->Port = 587;
                 $mail->CharSet = 'UTF-8';
-                $mail->setFrom($email, 'Support BlogScript');
+                $mail->setFrom($myemail, 'Support BlogScript');
                 $mail->addAddress($Email);
                 $mail->isHTML(true);
                 $mail->Subject = "Email Verification";
@@ -96,7 +96,7 @@ if ($_SERVER['REQUEST_METHOD'] === "POST") {
       </p>
 
       <div style='text-align: center; margin: 30px 0;'>
-        <a href='https://blogscriptapp.free.nf/verification?email=$Email&vcode=$vcode' style='text-decoration: none;'>
+        <a href='{$local}/verification?email=$Email&vcode=$vcode' style='text-decoration: none;'>
           <button style='padding: 14px 30px; background-color: #10b981; color: white; border: none; border-radius: 25px; font-size: 1rem; cursor: pointer; box-shadow: 0 4px 6px rgba(0,0,0,0.1);'>
             ✅ Verify My Email
           </button>

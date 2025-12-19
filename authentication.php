@@ -1,4 +1,11 @@
-
+<?php
+session_start();
+if (isset($_SESSION['email']))
+    {
+    header("Location:admin");
+    exit();
+    }
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,23 +16,14 @@
 <link rel="apple-touch-icon" sizes="180x180" href="favicon_io/apple-touch-icon.png">
 <link rel="icon" type="image/png" sizes="32x32" href="favicon_io/favicon-32x32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="favicon_io/favicon-16x16.png">
-<link rel="manifest" href="favicon_io/site.webmanifest">
-
-<!-- CSs link -->
-<link rel="stylesheet" href="style/authentication.css" type="text/css">
-
-<link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
-
 <!-- cdn JQUARY -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-
+<link rel="stylesheet" href="style/authentication.css">
 </head>
 <body>
-
-<!--code For pop up alert when signup  ------------------------------------------------------------------------------>
-
-
+  <!-- HEADER -->
+<?php include 'components/header.php';?>
   <main>
 <!--code For signup form------------------------------------------------------------------------------>
     <div class="box">
@@ -38,7 +36,7 @@
                  <input type="password" id="uPass" placeholder="Password" onchange="checkPass() "required>
                              <input type="submit" name="Signupbtn" value="Confirm" id="Signupbtn">
                                     <p>Allready have an account ? &nbsp; <a href="register#" id="lbtn">Login</a></p>
-                                    <div class="header"> </div>
+                                    <div class="message"> </div>
                                           </form>
 <!--code For login form ------------------------------------------------------------------------------>
       <div class="box2">
@@ -80,10 +78,10 @@
           Password: pass
         },
         success: function (response) {
-          $(".header").html(response).show();
+          $(".message").html(response).show();
 // set time out to hide the popup alert  window .............................................................................>
           setTimeout(function () {
-            $(".header").hide();
+            $(".message").hide();
           },50000);
         }
       });
@@ -91,6 +89,8 @@
   });
 </script>
   </main>
+  <?php include 'components/footer.php';?>
   <script src="script.js"></script>
+
 </body>
 </html>

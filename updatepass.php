@@ -6,7 +6,7 @@ include 'src/config.php';
 
 // Get the reset username from GET safely
 $reset_token = isset($_GET['token']) ? trim($_GET['token']) : '';
-$sql = "SELECT email, token_hash FROM password_resets WHERE expires_at > NOW()";
+$sql = "SELECT email, token_hash FROM password_resets";
 $result = $conn->query($sql);
 if($result->num_rows)
 {

@@ -28,15 +28,11 @@ $Blogger_id = $row['ID'] ?? 0;
 <link rel="apple-touch-icon" sizes="180x180" href="favicon_io/apple-touch-icon.png">
 <link rel="icon" type="image/png" sizes="32x32" href="favicon_io/favicon-32x32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="favicon_io/favicon-16x16.png">
-
-<!-- Font & Icons  ======================================================================================-->
-<link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+
 
 <style>
+    @import url('style/root.css');
 body {
     font-family: 'Poppins', sans-serif;
     background: #f3f5f9;
@@ -204,6 +200,7 @@ button.a1, button.a2, button.a3 {
 </head>
 
 <body>
+<?php include 'components/header.php'; ?>
 <div class="Rightside">
     <div class="header">
         <div class="userlog">
@@ -306,5 +303,6 @@ else
     ?>
     </table>
 </div>
+<?php include 'components/footer.php'; ?>
 </body>
 </html>

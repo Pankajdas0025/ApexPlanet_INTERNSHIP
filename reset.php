@@ -1,4 +1,4 @@
-<@DOCTYPE html>
+
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -8,13 +8,13 @@
 <link rel="apple-touch-icon" sizes="180x180" href="favicon_io/apple-touch-icon.png">
 <link rel="icon" type="image/png" sizes="32x32" href="favicon_io/favicon-32x32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="favicon_io/favicon-16x16.png">
-<link rel="manifest" href="favicon_io/site.webmanifest">
+
 <!-- CSs link -->
 <link rel="stylesheet" href="Style/Authentication.css" type="text/css">
 <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
 <!-- cdn JQUARY -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
 
 </head>
 <body>
@@ -29,8 +29,7 @@
 
 <?php
 
-$token = bin2hex(random_bytes(32)); // 64-char secure token
-$expiresAt = date('Y-m-d H:i:s', strtotime('+15 minutes'));
+
 
 
 use PHPMailer\PHPMailer\PHPMailer;
@@ -42,19 +41,18 @@ include 'src/db.php';
 include 'src/config.php';
 
 if ($_SERVER['REQUEST_METHOD'] === "POST" && isset($_POST['reset'])) {
+    $token = bin2hex(random_bytes(32)); // 64-char secure token
+    $expiresAt = date('Y-m-d H:i:s', strtotime('+15 minutes'));
+    $username = trim($_POST['username']);
 
-    $usernameOrEmail = trim($_POST['username']);
-
-    // Check if user exists by email or username
-    $stmt = $conn->prepare("SELECT ID , USER_NAME, EMAIL FROM users WHERE EMAIL=? OR USER_NAME=?");
-    $stmt->bind_param("ss", $usernameOrEmail, $usernameOrEmail);
+    // Check if user exists by email
+    $stmt = $conn->prepare("SELECT ID , EMAIL FROM users WHERE EMAIL=?");
+    $stmt->bind_param("s", $username);
     $stmt->execute();
     $result = $stmt->get_result();
 
     if ($result->num_rows > 0) {
         $user = $result->fetch_assoc();
-        $userId = $user['ID'];
-        $name = $user['USER_NAME'];
         $email = $user['EMAIL'];
 
 $tokenHash = password_hash($token, PASSWORD_DEFAULT);
@@ -64,24 +62,25 @@ $stmt->execute();
 
 
 
+
         // Prepare PHPMailer
         $mail = new PHPMailer(true);
         try {
             $mail->isSMTP();
             $mail->Host = 'smtp.gmail.com';
             $mail->SMTPAuth = true;
-            $mail->Username =  $email; // your Gmail ID
+            $mail->Username =  $myemail; // your Gmail ID
             $mail->Password = $password;  // Gmail App Password
             $mail->SMTPSecure = 'tls';
             $mail->Port = 587;
             $mail->CharSet = 'UTF-8';
-            $mail->setFrom($email, 'Support BlogScript');
+            $mail->setFrom($myemail, 'Support BlogScript');
             $mail->addAddress($email);
 
             $mail->isHTML(true);
             $mail->Subject = "Reset Your BlogScript Password";
 
-            $resetLink = "https://blogscriptapp.free.nf/update-user-password?token=$token";
+            $resetLink ="{$local}/update-user-password?token={$token}";
 
             $mail->Body = "
              <!DOCTYPE html>
@@ -95,7 +94,7 @@ $stmt->execute();
 
     <!-- Header -->
     <div style='background: linear-gradient(to right, #4f46e5, #ec4899); padding: 25px; text-align: center; color: #fff;'>
-      <h1 style='margin: 0; font-size: 1.8rem;'>👋 Hey <span style='color: #d1fae5;'>$name</span>,</h1>
+      <h1 style='margin: 0; font-size: 1.8rem;'>👋 Hey <span style='color: #d1fae5;'>$email</span>,</h1>
       <p style='margin-top: 10px; font-size: 1rem; color:black;'>Welcome to <strong>BlogScrip</strong> - Your Space to Create!</p>
     </div>
 
