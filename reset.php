@@ -18,20 +18,17 @@
 
 </head>
 <body>
+    <?php include 'components/header.php';?>
     <div class="box">
         <h2 class="sh">Reset Password🔐</h2>
         <form method="POST">
             <input type="text" name="username" placeholder="Enter Username or Email.." required>
             <input type="submit" name="reset"  value="Reset Link" style="background-color: rgb(156, 231, 156);">
         </form>
-   <div class='msg' style="color:white;"></div>
+   <div class='msg'></div>
     </div>
 
 <?php
-
-
-
-
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 require 'PHPMailer/src/PHPMailer.php';
@@ -76,12 +73,9 @@ $stmt->execute();
             $mail->CharSet = 'UTF-8';
             $mail->setFrom($myemail, 'Support BlogScript');
             $mail->addAddress($email);
-
             $mail->isHTML(true);
             $mail->Subject = "Reset Your BlogScript Password";
-
             $resetLink ="{$local}/update-user-password?token={$token}";
-
             $mail->Body = "
              <!DOCTYPE html>
 <html>
@@ -131,17 +125,44 @@ $stmt->execute();
 ";
 
             $mail->send();
-            echo "<script>document.querySelector('.msg').innerHTML = '✅ A reset link has been sent to your email.';</script>";
+             echo "<script>
+$(function () {
+    $('.msg')
+        .html('✅ A reset link has been sent to your email address.')
+        .slideDown(400)
+        .delay(3000)
+        .slideUp(1000);
+});
+</script>";
+
 
         } catch (Exception $e) {
-            echo "<script>document.querySelector('.msg').innerHTML = '❌ Failed to send email: {$mail->ErrorInfo}';</script>";
+                 echo "<script>
+$(function () {
+    $('.msg')
+        .html('❌ Failed to send reset email. Please try again later.')
+        .slideDown(400)
+        .delay(3000)
+        .slideUp(1000);
+});
+</script>";
+
         }
 
     } else {
-        echo "<script>document.querySelector('.msg').innerHTML = '❌ No account found with that username or email.';</script>";
+       echo "<script>
+$(function () {
+    $('.msg')
+        .html('😟No account found with that username or email.')
+        .slideDown(400)
+        .delay(3000)
+        .slideUp(1000);
+});
+</script>";
+
     }
 }
 ?>
-
+  <?php include 'components/footer.php';?>
 </body>
 </html>

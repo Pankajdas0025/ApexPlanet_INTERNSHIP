@@ -257,9 +257,9 @@ if (isset($_GET['search']) && !empty(trim($_GET['search']))) {
                 <td><textarea readonly>{$row['content']}</textarea></td>
                 <td>{$row['created_at']}</td>
                  <td>
-                    <button class='a1'><a href='view?id={$row['id']}' class='glyphicon glyphicon-eye-open'></a></button>
-                    <button class='a2'><a href='update?id={$row['id']}' class='glyphicon glyphicon-edit'></a></button>
-                    <button class='a3'><a href='delete?id={$row['id']}' onclick='return confirm(\"Are you sure?\")' class='glyphicon glyphicon-trash'></a></button>
+                    <button class='a1'><a href='view?id={$row['id']}><i class='fa-solid fa-eye'></i></a></button>
+                    <button class='a2'><a href='update?id={$row['id']}'><i class='fa-solid fa-pen-to-square'></i></a></button>
+                    <button class='a3'><a href='delete?id={$row['id']}' onclick='return confirm(\"Are you sure?\")'><i class='fa-solid fa-trash'></i></a></button>
 
                 </td>
 
@@ -291,9 +291,9 @@ else
                 <td><textarea readonly>{$row['content']}</textarea></td>
                 <td>{$row['created_at']}</td>
                  <td>
-                    <button class='a1'><a href='view?id={$row['id']}' class='glyphicon glyphicon-eye-open'></a></button>
-                    <button class='a2'><a href='update?id={$row['id']}' class='glyphicon glyphicon-edit'></a></button>
-                    <button class='a3'><a href='delete?id={$row['id']}' onclick='return confirm(\"Are you sure?\")'  class='glyphicon glyphicon-trash'></a></button>
+                    <button class='a1'><a href='view?id={$row['id']}'><i class='fa-solid fa-eye'></i></a></button>
+                    <button class='a2'><a href='update?id={$row['id']}'><i class='fa-solid fa-pen-to-square'></i></a></button>
+                    <button class='a3'><a href='delete?id={$row['id']}' onclick='return confirm(\"Are you sure?\")'><i class='fa-solid fa-trash'></i></a></button>
 
                 </td>
 

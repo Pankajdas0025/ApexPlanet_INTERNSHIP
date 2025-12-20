@@ -89,8 +89,8 @@ if (isset($_SESSION['email']))
   });
 </script>
   </main>
-  <?php include 'components/footer.php';?>
-  <script src="script.js"></script>
 
+  <script src="script.js"></script>
+  <?php include 'components/footer.php';?>
 </body>
 </html>

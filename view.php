@@ -17,33 +17,24 @@ $post = $result->fetch_assoc();
   <link rel="apple-touch-icon" sizes="180x180" href="favicon_io/apple-touch-icon.png">
   <link rel="icon" type="image/png" sizes="32x32" href="favicon_io/favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="favicon_io/favicon-16x16.png">
-  <link rel="manifest" href="favicon_io/site.webmanifest">
-
   <!-- Fonts & Icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
   <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-    }
-
-    body {
-      background: #f3f5f9;
-      display: flex;
-      min-height: 100vh;
-      padding:10px;
-    }
-
+    @import url('style/root.css');
     .Textarea {
-      background: linear-gradient(45deg,#6366f1,#f43f5e);
+      background: linear-gradient(180deg,#6366f1,#f43f5e);
       width: 100%;
-
+      max-width: 1000px;
       box-shadow: 0 4px 15px rgba(0,0,0,0.1);
       padding: 25px;
+      margin: 50px auto;
       animation: fadeIn 0.5s ease-in-out;
+    }
+
+   @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
     }
 
     .Textarea h2 {
@@ -121,10 +112,6 @@ $post = $result->fetch_assoc();
       background: #0056b3;
     }
 
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(10px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
 
     /* Responsive */
     @media (max-width: 700px) {
@@ -154,8 +141,8 @@ $post = $result->fetch_assoc();
     }
   </style>
 </head>
-
 <body>
+  <?php include 'components/header.php'; ?>
   <div class="Textarea">
     <h2>
       <?= htmlspecialchars($post['title']) ?>
@@ -184,5 +171,6 @@ $post = $result->fetch_assoc();
       });
     }
   </script>
+  <?php include 'components/footer.php'; ?>
 </body>
 </html>
