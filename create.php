@@ -22,134 +22,32 @@ include 'src/config.php';
   <!-- Custom CSS -->
   <style>
 @import url('style/root.css');
-
-    .Textarea {
-      background: linear-gradient(180deg,#6366f1,#f43f5e);
-      width: 100%;
-      max-width: 1000px;
-      margin: 50px auto;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-      padding:50px 25px;
-      animation: fadeIn 0.5s ease-in-out;
-    }
-
+ .Textarea { background: linear-gradient(180deg,#6366f1,#f43f5e); width: 100%;max-width: 1000px;margin: 50px auto;box-shadow: 0 4px 15px rgba(0,0,0,0.1);padding:50px 25px;animation: fadeIn 0.5s ease-in-out;}
    @keyframes fadeIn {
       from { opacity: 0; transform: translateY(10px); }
       to { opacity: 1; transform: translateY(0); }
     }
-
-    h2 input {
-      width: 100%;
-      padding: 12px;
-      border: 1px solid #ccc;
-      font-size: 16px;
-      outline: none;
-      transition: 0.3s;
-    }
-
-    h2 input:focus {
-      border-color: #007bff;
-      box-shadow: 0 0 4px rgba(0,123,255,0.3);
-    }
-
-    .toolbar {
-      display: flex;
-      gap: 10px;
-      margin: 15px 0;
-      flex-wrap: wrap;
-    }
-
-    .toolbar button {
-      background: #f0f0f0;
-      border: none;
-      padding: 8px 12px;
-      border-radius: 6px;
-      cursor: pointer;
-      transition: 0.3s;
-      font-size: 14px;
-    }
-
-    .toolbar button:hover {
-      background: #007bff;
-      color: #fff;
-    }
-
-    .editor {
-      min-height: 200px;
-      border: 1px solid #ccc;
-      padding: 12px;
-      font-size: 15px;
-      line-height: 1.6;
-      outline: none;
-      transition: 0.3s;
-      background: #fafafa;
-    }
-
-    .editor:focus {
-      border-color: #007bff;
-      background: #fff;
-    }
-
-    #footer {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-top: 25px;
-    }
-
-    #footer a {
-      text-decoration: none;
-      color: #ffffff;
-      font-size: 16px;
-      display: flex;
-      align-items: center;
-      gap: 6px;
-
-    }
-
-    #footer button {
-      background: #007bff;
-      border: none;
-      padding: 10px 18px;
-      border-radius: 8px;
-      color: #fff;
-      font-size: 16px;
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-      gap: 6px;
-      transition: 0.3s;
-    }
-
-    #footer button:hover {
-      background: #0056b3;
-    }
+    .editor,h2 input{padding:12px;outline:0;transition:.3s}
+    #footer a,#footer button{color:#fff;font-size:16px;display:flex;gap:6px}
+    h2 input{width:100%;border:1px solid #ccc;font-size:16px}
+    h2 input:focus{border-color:#007bff;box-shadow:0 0 4px rgba(0,123,255,.3)}
+    .toolbar{display:flex;gap:10px;margin:15px 0;flex-wrap:wrap}
+    .toolbar button{background:#f0f0f0;border:none;padding:8px 12px;border-radius:6px;cursor:pointer;transition:.3s;font-size:14px}
+    .toolbar button:hover{background:#007bff;color:#fff}
+    .editor{min-height:200px;border:1px solid #ccc;font-size:15px;line-height:1.6;background:#fafafa}
+    .editor:focus{border-color:#007bff;background:#fff}
+    #footer{display:flex;justify-content:space-between;align-items:center;margin-top:25px}
+    #footer a{text-decoration:none;align-items:center}
+    #footer button{background:#007bff;border:none;padding:10px 18px;border-radius:8px;cursor:pointer;align-items:center;transition:.3s}
+    #footer button:hover{background:#0056b3}
 
     /* Responsive */
     @media (max-width: 600px) {
-      .Textarea {
-        padding: 15px;
-        height:auto;
-      }
-
-      h2 input {
-        font-size: 14px;
-      }
-
-      .toolbar button {
-        padding: 6px 10px;
-        font-size: 12px;
-      }
-
-      .editor {
-        min-height: 150px;
-        font-size: 14px;
-      }
-
-      #footer button {
-        font-size: 14px;
-        padding: 8px 14px;
-      }
+   #footer button,.editor,h2 input{font-size:14px}
+   .Textarea{padding:15px;height:auto}
+   .toolbar button{padding:6px 10px;font-size:12px}
+   .editor{min-height:150px}
+   #footer button{padding:8px 14px}
     }
   </style>
 </head>
