@@ -7,8 +7,6 @@
 
 <img src="Images\blogscript-logo.jpg" height="50%" width="50%">
 
-
-
 ### Task 1: Setting Up the Development Environment
 Installed XAMPP to set up Apache & MySQL locally.
 Configured VS Code with PHP extensions.
