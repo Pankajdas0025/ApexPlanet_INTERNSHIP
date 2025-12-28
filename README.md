@@ -14,7 +14,7 @@ BlogScript is a full-stack CRUD-based blog web application developed using **PHP
 
 ## 📸 Project Preview
 
-<img src="Images/blogscript-logo.jpg" width="50%" alt="BlogScript Logo"/>
+<img src="Images/Blogscript.png" width="50%" alt="BlogScript Logo"/>
 
 ---
 
