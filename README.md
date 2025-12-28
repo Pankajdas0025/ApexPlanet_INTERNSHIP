@@ -1,31 +1,174 @@
-### Check Now
+            ## BlogScript – CRUD Based Blog Web Application
+            A secure and user-friendly CRUD-based blogging platform developed using PHP & MySQL, designed to allow users to create, read, update, and delete blog posts with proper authentication and email verification.
 
-<a href="https://blogscriptapp.free.nf/"><img src="https://img.shields.io/badge/Visit Now-0073e6?style=for-the-badge&logo=google-chrome&logoColor=white" alt="Website Badge" /></a>
-<br>
-<br>
-<img src="Images\blogscript-logo.jpg" height="50%" width="50%">
+            🔗 Live Project
+            <a href="https://blogscriptapp.free.nf/"> <img src="https://img.shields.io/badge/Visit%20Live%20Project-0073e6?style=for-the-badge&logo=google-chrome&logoColor=white" alt="Live Website"> </a>
+            📸 Project Logo
+            <img src="Images/blogscript-logo.jpg" width="50%" alt="BlogScript Logo">
+            📄 Project Documents
 
-### Task 1: Setting Up the Development Environment
-Installed XAMPP to set up Apache & MySQL locally.
-Configured VS Code with PHP extensions.
-Set up Git & GitHub with version control and made the first commit.
+            📘 Final Project Report
+            👉 View Report
 
-### Task 2: Basic CRUD Application
-Created a MySQL database (blog) with posts and users tables.
-Implemented CRUD operations using PHP.
-Developed user registration & login with password hashing and sessions.
+            📊 Project Presentation
+            👉 View Presentation
 
-### Task 3: Advanced Features Implementation
-Added search functionality for blog posts.
-Implemented pagination to manage post display.
-Styled the app using CSS & Bootstrap for a responsive UI.
+            📌 Project Overview
 
-### Task 4: Security Enhancements
-Secured database queries using prepared statements (MySQLi).
-Added both client-side and server-side validation.
-Introduced user roles like admin/editor with role-based access.
+            BlogScript is a CRUD-based blog web application that enables users to manage blog content efficiently. The platform focuses on simplicity, security, and scalability while providing essential blogging features such as authentication, post management, and email-based password recovery.
 
-### Task 5: Final Project & Certification
-Integrated all features into a complete blog management system.
-Performed functional, usability, and security testing.
-Delivered a polished, production-ready application!
+            🚀 Features
+
+            User Registration & Login System
+
+            Email Verification & Password Reset
+
+            Create, Read, Update, Delete (CRUD) Blog Posts
+
+            Secure Authentication with Password Hashing
+
+            Search & Pagination for Blog Posts
+
+            Role-Based Access (Admin / Editor)
+
+            Responsive UI for Mobile & Desktop
+
+            Secure Database Queries using Prepared Statements
+
+            🛠️ Technologies Used
+            Frontend
+
+            HTML5
+
+            CSS3
+
+            JavaScript
+
+            Bootstrap
+
+            Backend
+
+            Core PHP
+
+            PHPMailer
+
+            Database
+
+            MySQL
+
+            Development Tools
+
+            XAMPP
+
+            VS Code
+
+            phpMyAdmin
+
+            Git & GitHub
+
+            Hosting
+
+            InfinityFree (with SSL)
+
+            ⚙️ Development Environment Setup
+            Prerequisites
+
+            XAMPP installed
+
+            PHP 8+
+
+            MySQL
+
+            Git
+
+            Steps
+
+            Clone the repository
+
+            git clone https://github.com/Pankajdas0025/ApexPlanet_Internship_Project.git
+
+
+            Move project to XAMPP htdocs folder
+
+            Start Apache and MySQL from XAMPP Control Panel
+
+            Import the database:
+
+            Open phpMyAdmin
+
+            Create database blog
+
+            Import the provided .sql file
+
+            Configure database connection in config.php
+
+            Run the project:
+
+            http://localhost/blogscript
+
+            📂 Project Structure
+            BlogScript/
+            │
+            ├── Images/
+            ├── Report/
+            │   ├── Final Report.pdf
+            │   └── BlogScript presentation.pptx
+            │
+            ├── auth/
+            │   ├── login.php
+            │   ├── register.php
+            │   └── reset-password.php
+            │
+            ├── posts/
+            │   ├── create.php
+            │   ├── edit.php
+            │   ├── delete.php
+            │   └── view.php
+            │
+            ├── config.php
+            ├── index.php
+            └── README.md
+
+            🧪 Testing
+
+            Unit Testing for authentication and CRUD operations
+
+            Integration Testing for login, signup, and post management
+
+            Responsive Testing across devices
+
+            Security Testing for SQL Injection and session handling
+
+            📈 Future Enhancements
+
+            Comment & Like System
+
+            Rich Text Editor
+
+            SEO Optimization
+
+            User Profile Customization
+
+            Notification System
+
+            Multi-language Support
+
+            Mobile Application Integration
+
+            📦 Repository Links
+
+            Main Repository:
+            https://github.com/Pankajdas0025/ApexPlanet_Internship_Project
+
+            Test Repository:
+            https://github.com/Pankajdas0025/BlogScript-website
+
+            📜 License
+
+            This project is developed as part of a Summer Internship Program and is intended for educational and learning purposes.
+
+            👨‍💻 Developed By
+
+            Pankaj Kumar Das
+            Bachelor of Computer Applications
+            Teerthanker Mahaveer University, Moradabad
