@@ -17,12 +17,14 @@ $_SESSION['email'];
 <meta name="author" content="BlogScript"/>
 <link rel="manifest" href="src/manifest.json">
 
+
 <!-- Open Graph / Facebook -->
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://blogscriptapp.free.nf/home/">
 <meta property="og:title" content="BlogScript - a simple blogging platform to read, write & share blogs">
 <meta property="og:description"  content="BlogScript is a simple blogging platform where you can read, write, and share creative blogs. Explore ideas, stories, and knowledge shared by creators."/>
 <meta property="og:image" content="https://blogscriptapp.free.nf/Images/og.png">
+
 
 <!-- Twitter Card for Social Media -->
 <meta property="twitter:card" content="summary_large_image">
